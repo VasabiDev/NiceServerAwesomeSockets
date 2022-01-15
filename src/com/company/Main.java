@@ -1,9 +1,6 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -29,8 +26,8 @@ public class Main {
                     while (bufferedReader.ready()) {
                         System.out.println(bufferedReader.readLine());
                     }
-
-                    Path path = Paths.get("F:\\NiceServerAwesomeSockets\\out\\production\\NiceServerAwesomeSockets\\com\\company\\files\\index.htm",splited[1]);
+                    File f = new File ("index.htm");
+                    Path path = Paths.get(f.getAbsolutePath(),splited[1]);
                     if (!Files.exists(path)){
                         printWriter.println("HTTP/1.1 404 NOT_FOUND");
                         printWriter.println("Content-Type: text/html; charset=utf-8");
